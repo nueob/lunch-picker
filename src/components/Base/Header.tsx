@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Component = {
   Wrapper: styled.div`
+    height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
