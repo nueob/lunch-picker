@@ -4,24 +4,28 @@ import styled from 'styled-components';
 
 const Component = {
   Wrapper: styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 60vw;
+    height: 95vh;
   `
 }
 
 const Map = () => {
     useEffect(() => {
-
-        const container = document.getElementById('map');
-        if (container) {
-          const options = {
-            center: new window.kakao.maps.LatLng(37.55393232536325, 126.91930903553528),
-            level: 3
-          };
-      
-          const map = new window.kakao.maps.Map(container, options);
-        }
-      }, []);
+      const container = document.getElementById('map');
+      if (container) {
+        const kakaoMaps = window.kakao.maps;
+        const options = {
+          center: new kakaoMaps.LatLng(37.55393232536325, 126.91930903553528),
+          level: 3
+        };
+    
+        const map = new kakaoMaps.Map(container, options);
+        const mapTypeControl = new kakaoMaps.MapTypeControl();
+        const zoomControl = new kakaoMaps.ZoomControl();
+        map.addControl(mapTypeControl, kakaoMaps.ControlPosition.TOPRIGHT);
+        map.addControl(zoomControl, kakaoMaps.ControlPosition.RIGHT);
+      }
+    }, []);
 
     return (
         <Component.Wrapper id="map" />
