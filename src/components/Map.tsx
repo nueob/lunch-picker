@@ -1,5 +1,14 @@
 import React, { useEffect } from 'react';
 
+import styled from 'styled-components';
+
+const Component = {
+  Wrapper: styled.div`
+    width: 100vw;
+    height: 100vh;
+  `
+}
+
 const Map = () => {
     useEffect(() => {
 
@@ -15,7 +24,7 @@ const Map = () => {
       }, []);
 
     return (
-        <div id="map" style={{ width: "100vw", height: "100vh" }} />
+        <Component.Wrapper id="map" />
     );
 }
 
